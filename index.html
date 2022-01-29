@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&display=swap" rel="stylesheet">     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+</head>
+<body>
+    <section class="options">
+        <div id="choosenCharacter" class="choosenCharacter">
+          <!-- Image will be added via js -->
+        </div>
+        <div id="helpBtn"><i class="fas fa-question"></i></div>
+        <div id="musicBtn" class="eventCancel"><i class="fas fa-music"></i></div>
+        <div id="soundBtn" class="eventCancel"><i id="soundIcon" class="fas fa-volume-off"></i></div>
+    </section>
+    <section id="playCharacterSection" class="buttons">
+      <div id="playButon" class="play-button eventCancel pointerEventCancel">Play</div>
+      <div id="characterChooseButton" class="character-choose">Choose Character</div>
+    </section>  
+
+    <section id="character-section" class="character-section">
+        <div class="avatar-section">
+           <div class="CS__cesar">
+             <div class="avatar-img-holder cesar-image-holder avatar-img-holder-active">    
+               <img class="avatar-image" src="images/cesar.png" alt="Cesar">
+             </div>
+             <p class="cesar-name avatar-name">Cesar</p>
+           </div>
+
+           <div class="CS__bett"> 
+             <div class="avatar-img-holder bett-image-holder">
+               <img class="avatar-image" src="images/bett.png" alt="Bett">
+             </div>  
+             <p class="bett-name avatar-name">Bett</p>
+           </div>
+
+           <div class="CS__bob"> 
+             <div class="avatar-img-holder bob-image-holder">
+               <img class="avatar-image" src="images/bob.png" alt="Bob">
+             </div> 
+             <p class="bob-name avatar-name">Bob</p>
+           </div>
+
+           <div class="CS__anna">
+             <div class="avatar-img-holder anna-image-holder">     
+               <img class="avatar-image" src="images/anna.png" alt="Anna">
+             </div> 
+             <p class="anna-name avatar-name">Anna</p>
+           </div>  
+        </div>
+
+        <div id="avatar-profile" class="avatar-profile">
+            <div id="avatar-profile-before" class="avatar-profile-before"></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit suscipit blanditiis distinctio architecto dolorem similique quidem deserunt, alias ratione, id ut optio, omnis nesciunt asperiores.</p>
+        </div>
+
+        <div id="confirm-btn" class="confirm-btn">Confirm</div>
+    </section>
+
+    <section id="gameSection" class="gameSection">
+        <div id="creditsBtn" class="credits-btn">
+            Credits
+        </div>
+        <div class="game-table">
+
+            <div class="table">
+                <div class="table-image-holder">
+                 <img src="images/pokerTable.png" alt="poker table">
+                </div> 
+                <div id="seatOneCardHolder" class="seat-one-card-holder seat-cards-holder">
+                    <div class="seat-one-card-one seat-cards"></div>
+                    <div class="seat-one-card-two seat-cards"></div>
+                    <div class="seat-one-card-three  lastcard"></div>
+                    <div class="seat-cards-holder-hider"></div>
+                </div>
+                <div id="seatTwoCardHolder" class="seat-two-card-holder seat-cards-holder">
+                    <div class="seat-two-card-one seat-cards"></div>
+                    <div class="seat-two-card-two seat-cards"></div>
+                    <div class="seat-two-card-three  lastcard"></div>
+                    <div class="seat-cards-holder-hider"></div>
+                </div>
+                <div id="seatThreeCardHolder" class="seat-three-card-holder seat-cards-holder">
+                    <div class="seat-three-card-one seat-cards"></div>
+                    <div class="seat-three-card-two seat-cards"></div>
+                    <div class="seat-three-card-three  lastcard"></div>
+                </div>
+                <div id="seatFourCardHolder" class="seat-four-card-holder seat-cards-holder">
+                    <div class="seat-four-card-one seat-cards"></div>
+                    <div class="seat-four-card-two seat-cards"></div>
+                    <div class="seat-four-card-three lastcard"></div>
+                    <div class="seat-cards-holder-hider"></div>
+                </div>
+                <div id="gameButtons" class="gameButtons">
+                    <div id="drawAndStopBtn" class="drawAndStopBtn">Draw</div>
+                    <div id="drawOneCardBtn" class="drawOneCardBtn">Draw</div>
+                    <div id="checkButton" class="checkButton">Check</div>
+                    <div id="foldButton" class="foldButton">Fold</div>
+                </div>
+                <div id="winnerDisplay" class="winnerDisplay"></div>
+
+              <div class="seat-one-holder seat-holders">
+                <div class="seatOneFirstRow">
+                 <p id="seatOneName">
+                   
+                 </p>
+                 <div id="seatOne" class="seat-one seats">
+                   
+                 </div>
+                 <div class="seatOneBubbleChat bubbleChat">
+                 
+                 </div>
+               </div>  
+                <div id="seatOneShowTotalMark" class="seatOneShowTotalMark">
+
+               </div>
+
+              </div>  
+
+              <div class="seat-two-holder seat-holders"> 
+                <div id="seatTwoShowTotalMark" class="seatTwoShowTotalMark">
+
+                </div>
+                <div id="seatTwo" class="seat-two seats">
+                    
+                </div>
+                <p id="seatTwoName">
+                   
+                </p>
+                <div class="seatTwoBubbleChat bubbleChat ">
+                  
+                </div>
+              </div> 
+              
+              <div class="seat-three-holder seat-holders">
+                <div  class="seat-three seats">
+                   
+                </div>
+                <div id="seatThreeShowTotalMark" class="seatThreeShowTotalMark">
+           
+                </div>
+              </div>
+
+              <div class="seat-four-holder seat-holders">
+                <div id="seatFourShowTotalMark" class="seatFourShowTotalMark">
+
+                </div>
+                <div id="seatFour" class="seat-four seats">
+                    
+                </div>
+                <p id="seatFourName">
+                   
+                </p>
+                <div class="seatFourBubbleChat bubbleChat">
+                 
+                </div>
+             </div>  
+            </div>
+        </div>
+        <div class="profile-holder">
+            <p id="bankTitle" class="bank-title">Bank</p>
+            <div id="profileInfos" class="profile-infos">
+             <div class="profile-card"> 
+                <div id="profileImageHolder" class="profileImageHolder">
+               
+                </div>
+                <p id="profileName">
+               
+                </p>
+             </div>  
+                <div  class="hearts-holder">
+                   <div id="heartOne" class="heart1 hearts heartContainer">
+
+                   </div>
+                   <div id="heartTwo" class="heart2 hearts heartContainer">
+
+                   </div>
+                   <div id="heartThree" class="heart3 hearts heartContainer">
+
+                   </div>
+                   <div id="heartFour" class="heart4 hearts heartContainer">
+
+                   </div>
+                   <div id="heartFive" class="heart5 hearts heartContainer">
+
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="credits" class="credits">
+      <div class="avatar-credits">
+        <p class="avatar-credits-title">Avatars image are from :</p>
+        <a target="_blank" href="http://pickaface.net" class="avatar-link">pickaface</a>
+       </div>
+       <div class="bg-music-credits">
+        <p class="bg-music-credits-title">Music By: Alexander Nakarada</p>
+        <div class="bg-music-credits-second-title">
+         <p>From:&nbsp;</p><a target="_blank" href="https://www.serpentsoundstudios.com" class="bg-music-link">serpentsoundstudios</a>
+        </div>
+        <div class="bg-music-credits-third-title">
+          <p>Music Promoted By:&nbsp;</p><a target="_blank" href="https://www.chosic.com/free-music/all/">chosic.com</a>
+        </div>
+        <div class="bg-music-credits-fourth-title">
+          <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International (CC BY 4.0)</a>
+        </div>
+       </div>
+       <div class="avatar-voice-credits">
+         <p class="avatar-voice-credits-title">Avatar Voice are from:&nbsp;</p>
+         <a class="avatar-voice-link" target="_blank" href="https://wideo.co/text-to-speech/">Wideo Text To Speech</a>
+       </div>
+       <div id="credits-close-btn" class="credits-close-btn">X</div>
+    </section>
+
+    <audio id="bobDrawMaleVoiceLine" src="music/bobVoiceLine/draw.wav"></audio>
+    <audio id="bobCheckMaleVoiceLine" src="music/bobVoiceLine/check.wav"></audio>
+    <audio id="bobFoldMaleVoiceLine" src="music/bobVoiceLine/fold.wav"></audio>
+    
+    <audio id="annaDrawFemaleVoiceLine" src="music/annaVoiceLine/drawAnna.mp3"></audio>
+    <audio id="annaCheckFemaleVoiceLine" src="music/annaVoiceLine/checkAnna.mp3"></audio>
+    <audio id="annaFoldFemaleVoiceLine" src="music/annaVoiceLine/foldAnna.mp3"></audio>
+
+    <audio id="bettDrawFemaleVoiceLine" src="music/bettVoiceLine/draw.mp3"></audio>
+    <audio id="bettCheckFemaleVoiceLine" src="music/bettVoiceLine/check.mp3"></audio>
+    <audio id="bettFoldFemaleVoiceLine" src="music/bettVoiceLine/fold.mp3"></audio>
+
+    <audio id="cesarDrawMaleVoiceLine" src="music/cesarVoiceLine/draw.mp3"></audio>
+    <audio id="cesarCheckMaleVoiceLine" src="music/cesarVoiceLine/check.mp3"></audio>
+    <audio id="cesarFoldMaleVoiceLine" src="music/cesarVoiceLine/fold.mp3"></audio>
+
+    <audio id="background-music" src="music/bg-music/ForestWalk-320bit.mp3"></audio>
+</body>
+    <script src="main.js"></script>
+</html>
