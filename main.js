@@ -1,3 +1,4 @@
+const body = document.querySelector('body')
 const helpBtn = document.getElementById('helpBtn')
 const musicBtn = document.getElementById('musicBtn')
 const soundBtn = document.getElementById('soundBtn')
@@ -26,13 +27,9 @@ const seatOneShowTotalMark = document.getElementById('seatOneShowTotalMark')
 const seatTwoShowTotalMark = document.getElementById('seatTwoShowTotalMark')
 const seatThreeShowTotalMark = document.getElementById('seatThreeShowTotalMark')
 const seatFourShowTotalMark = document.getElementById('seatFourShowTotalMark')
-const profileImageHolder = document.getElementById('profileImageHolder')
-const profileInfos = document.getElementById('profileInfos')
-const profileName = document.getElementById('profileName')
 const seatOneName = document.getElementById('seatOneName')
 const seatTwoName = document.getElementById('seatTwoName')
 const seatFourName = document.getElementById('seatFourName')
-const bankTitle = document.getElementById('bankTitle')
 const gameButtons = document.getElementById('gameButtons')
 const drawBtn = document.getElementById('drawAndStopBtn')
 const drawOneCardBtn = document.getElementById('drawOneCardBtn')
@@ -48,6 +45,8 @@ const credits = document.getElementById('credits')
 const avatarDialogue = ["Draw","Fold","Check"]
 const winnerDisplay = document.getElementById('winnerDisplay')
 const seatCardsHolderHiders = document.querySelectorAll('.seat-cards-holder-hider')
+const settingToggle = document.querySelector('.setting-toggle')
+const optionsFirstRow = document.querySelector('.options__first-row')
 
 const bobDrawMaleVoiceLine = document.getElementById('bobDrawMaleVoiceLine')
 const bobCheckMaleVoiceLine = document.getElementById('bobCheckMaleVoiceLine')
@@ -67,7 +66,6 @@ const cesarFoldMaleVoiceLine = document.getElementById('cesarFoldMaleVoiceLine')
 
 const backgroundMusic = document.getElementById('background-music')
 
-const heartContainers = document.querySelectorAll('.heartContainer')
 
 let lives = 5
 
@@ -117,7 +115,6 @@ Character Id
 characterChooseButton.addEventListener('click', () => {
     characterSection.style.display = "flex"
 })
-console.log(musicOn,audioOn)
 // audio buttons
 for(let i = 0; i < audioBtns.length; i++){
     audioBtns[i].addEventListener('click',() => {
@@ -168,7 +165,7 @@ for(let i = 0; i < avatarImage.length; i++){
             if(index === 0 && i === 0){
                 avatarProfile.style.backgroundColor = "hsl(var(--cesar-clr))"
                 avatarProfileBefore.style.borderBottomColor = "hsl(var(--cesar-clr))"
-                avatarProfileBefore.style.left = "5%"
+                avatarProfileBefore.style.left = "3%"
                 confirmBtn.style.backgroundColor = "hsl(var(--cesar-clr))"
                 choosenCharacter.innerHTML = `
                     <img src="images/cesar.png">
@@ -186,7 +183,7 @@ for(let i = 0; i < avatarImage.length; i++){
             }else if(index === 1 && i === 1){
                 avatarProfile.style.backgroundColor = "hsl(var(--bett-clr))"
                 avatarProfileBefore.style.borderBottomColor = "hsl(var(--bett-clr))"
-                avatarProfileBefore.style.left = "33%"
+                avatarProfileBefore.style.left = "17%"
                 confirmBtn.style.backgroundColor = 'hsl(var(--bett-clr))'
                 choosenCharacter.innerHTML = `
                 <img src="images/bett.png">
@@ -204,7 +201,7 @@ for(let i = 0; i < avatarImage.length; i++){
             }else if(index === 2 && i === 2){
                 avatarProfile.style.backgroundColor = "hsl(var(--bob-clr))"
                 avatarProfileBefore.style.borderBottomColor = "hsl(var(--bob-clr))"
-                avatarProfileBefore.style.left = "60%"
+                avatarProfileBefore.style.left = "32%"
                 confirmBtn.style.backgroundColor = "hsl(var(--bob-clr))"
                 choosenCharacter.innerHTML = `
                 <img src="images/bob.png">
@@ -222,7 +219,7 @@ for(let i = 0; i < avatarImage.length; i++){
             }else if(index === 3 && i === 3){
                 avatarProfile.style.backgroundColor = "hsl(var(--anna-clr))"
                 avatarProfileBefore.style.borderBottomColor = "hsl(var(--anna-clr))"
-                avatarProfileBefore.style.left = "87%" 
+                avatarProfileBefore.style.left = "47%" 
                 confirmBtn.style.backgroundColor = "hsl(var(--anna-clr))"
                 choosenCharacter.innerHTML = `
                 <img src="images/anna.png">
@@ -289,8 +286,6 @@ function avatarSeating(){
         seatTwoShowTotalMark.style.color = "hsl(var(--secondary-clr))"
 
         // cesar 
-        profileImageHolder.style.backgroundColor = "hsl(var(--cesar-clr))"
-        profileInfos.style.borderTopColor = "hsl(var(--cesar-clr))"
         seatThreeShowTotalMark.style.backgroundColor = "hsl(var(--cesar-clr))"
         seatThreeShowTotalMark.style.color = "hsl(var(--secondary-clr))"
        
@@ -303,16 +298,6 @@ function avatarSeating(){
         seatFourName.style.color = "hsl(var(--bett-clr))"
         seatFourShowTotalMark.style.backgroundColor = "hsl(var(--bett-clr))"
         seatFourShowTotalMark.style.color = "hsl(var(--secondary-clr))"
-
-        // profile styling
-        profileImageHolder.innerHTML = `
-          <img src="images/cesar.png">        
-        `
-        profileName.innerHTML = `
-        Cesar       
-        `
-        profileName.style.color = "hsl(var(--cesar-clr))"
-        bankTitle.style.color = "hsl(var(--cesar-clr))"
 
     }else if(characterId === 2){
        // anna
@@ -336,8 +321,6 @@ function avatarSeating(){
         seatTwoShowTotalMark.style.color = "hsl(var(--secondary-clr))"
 
         // bett 
-        profileImageHolder.style.backgroundColor = "hsl(var(--bett-clr))"
-        profileInfos.style.borderTopColor = "hsl(var(--bett-clr))"
 
         seatThreeShowTotalMark.style.backgroundColor = "hsl(var(--bett-clr))"
         seatThreeShowTotalMark.style.color = "hsl(var(--secondary-clr))"
@@ -351,16 +334,6 @@ function avatarSeating(){
         seatFourName.style.color = "hsl(var(--bob-clr))"
         seatFourShowTotalMark.style.backgroundColor = "hsl(var(--bob-clr))"
         seatFourShowTotalMark.style.color = "hsl(var(--secondary-clr))"
-
-        // profile styling
-        profileImageHolder.innerHTML = `
-          <img src="images/bett.png">        
-        `
-        profileName.innerHTML = `
-        Bett
-        `
-        profileName.style.color = "hsl(var(--bett-clr))"
-        bankTitle.style.color = "hsl(var(--bett-clr))"
 
     }else if(characterId === 3){
         // cesar
@@ -384,9 +357,6 @@ function avatarSeating(){
          seatTwoShowTotalMark.style.color = "hsl(var(--secondary-clr))"
 
          // bob 
-         profileImageHolder.style.backgroundColor = "hsl(var(--bob-clr))"
-         profileInfos.style.borderTopColor = "hsl(var(--bob-clr))"
-
          seatThreeShowTotalMark.style.backgroundColor = "hsl(var(--bob-clr))"
          seatThreeShowTotalMark.style.color = "hsl(var(--secondary-clr))"
         
@@ -399,17 +369,6 @@ function avatarSeating(){
          seatFourName.style.color = "hsl(var(--anna-clr))"
          seatFourShowTotalMark.style.backgroundColor = "hsl(var(--anna-clr))"
          seatFourShowTotalMark.style.color = "hsl(var(--secondary-clr))"
-
-        // profile styling
-         profileImageHolder.innerHTML = `
-           <img src="images/bob.png">        
-         `
-         profileName.innerHTML = `
-         Bob        
-         `
-         profileName.style.color = "hsl(var(--bob-clr))"
-
-         bankTitle.style.color = "hsl(var(--bob-clr))"
 
      }else if(characterId === 4){
         // bett
@@ -433,8 +392,6 @@ function avatarSeating(){
          seatTwoShowTotalMark.style.color = "hsl(var(--secondary-clr))"
 
          // anna 
-         profileImageHolder.style.backgroundColor = "hsl(var(--anna-clr))"
-         profileInfos.style.borderTopColor = "hsl(var(--anna-clr))"
          seatThreeShowTotalMark.style.backgroundColor = "hsl(var(--anna-clr))"
          seatThreeShowTotalMark.style.color = "hsl(var(--secondary-clr))"
         
@@ -448,16 +405,6 @@ function avatarSeating(){
          seatFourShowTotalMark.style.backgroundColor = "hsl(var(--cesar-clr))"
          seatFourShowTotalMark.style.color = "hsl(var(--secondary-clr))"
 
-        // profile styling
-         profileImageHolder.innerHTML = `
-           <img src="images/anna.png">        
-         `
-         profileName.innerHTML = `
-         Anna       
-         `
-         profileName.style.color = "hsl(var(--anna-clr))"
-
-         bankTitle.style.color = "hsl(var(--anna-clr))"
     }
 }
 
@@ -467,7 +414,6 @@ function getDeckId()  {
         .then(res => res.json())
         .then(data =>{
              deckId = data.deck_id
-             console.log(deckId)
         })
 } 
 getDeckId()     
@@ -563,12 +509,12 @@ function ifSeatFourIsTrue(){
         bubbleChat[2].textContent = avatarDialogue[0]
         drawLastCardSeatFour()
         seatCardsHolderHiders[2].style.backgroundImage =`linear-gradient(
-                                                      to right,
-                                                      rgb(48, 196, 164) 65px,
-                                                      transparent 65px 73px,
-                                                      rgb(48, 196, 164) 73px 138px,
-                                                      transparent 138px 146px,
-                                                      rgb(48, 196, 164) 146px 211px)`
+                                                          to right,
+                                                          rgb(48, 196, 164) 31%,
+                                                          transparent 31% 35%,
+                                                          rgb(48, 196, 164) 35% 66%,
+                                                          transparent 66% 100%
+                                                        );`
         seatFourTurn = false
         seatThreeTurn = false
         seatTwoTurn = false
@@ -596,12 +542,12 @@ function ifSeatFourIsTrue(){
         if(bubbleChat[2].textContent === "Draw"){
           drawLastCardSeatFour()
           seatCardsHolderHiders[2].style.backgroundImage =`linear-gradient(
-                                                        to right,
-                                                        rgb(48, 196, 164) 65px,
-                                                        transparent 65px 73px,
-                                                        rgb(48, 196, 164) 73px 138px,
-                                                        transparent 138px 146px,
-                                                        rgb(48, 196, 164) 146px 211px)`
+                                                            to right,
+                                                            rgb(48, 196, 164) 31%,
+                                                            transparent 31% 35%,
+                                                            rgb(48, 196, 164) 35% 66%,
+                                                            transparent 66% 100%
+                                                          );`
           seatFourTurn = false
           seatThreeTurn = false
           seatTwoTurn = false
@@ -701,12 +647,12 @@ function ifSeatOneIsTrue(){
           bubbleChat[0].textContent = avatarDialogue[0]
           drawLastCardSeatOne()
           seatCardsHolderHiders[0].style.backgroundImage =`linear-gradient(
-                                                        to right,
-                                                        rgb(48, 196, 164) 65px,
-                                                        transparent 65px 73px,
-                                                        rgb(48, 196, 164) 73px 138px,
-                                                        transparent 138px 146px,
-                                                        rgb(48, 196, 164) 146px 211px)`
+                                                            to right,
+                                                            rgb(48, 196, 164) 31%,
+                                                            transparent 31% 35%,
+                                                            rgb(48, 196, 164) 35% 66%,
+                                                            transparent 66% 100%
+                                                          );`
           seatFourTurn = false
           seatThreeTurn = false
           seatTwoTurn = true
@@ -730,12 +676,12 @@ function ifSeatOneIsTrue(){
           drawLastCardSeatOne()
           if(bubbleChat[0].textContent === "Draw"){
             seatCardsHolderHiders[0].style.backgroundImage =`linear-gradient(
-                                                          to right,
-                                                          rgb(48, 196, 164) 65px,
-                                                          transparent 65px 73px,
-                                                          rgb(48, 196, 164) 73px 138px,
-                                                          transparent 138px 146px,
-                                                          rgb(48, 196, 164) 146px 211px)`
+                                                              to right,
+                                                              rgb(48, 196, 164) 31%,
+                                                              transparent 31% 35%,
+                                                              rgb(48, 196, 164) 35% 66%,
+                                                              transparent 66% 100%
+                                                            );`
             seatFourTurn = false
             seatThreeTurn = false
             seatTwoTurn = true
@@ -829,12 +775,12 @@ function ifSeatTwoIsTrue(){
             bubbleChat[1].textContent = avatarDialogue[0]
             drawLastCardSeatTwo()
             seatCardsHolderHiders[1].style.backgroundImage =`linear-gradient(
-                                                          to right,
-                                                          rgb(48, 196, 164) 65px,
-                                                          transparent 65px 73px,
-                                                          rgb(48, 196, 164) 73px 138px,
-                                                          transparent 138px 146px,
-                                                          rgb(48, 196, 164) 146px 211px)`
+                                                              to right,
+                                                              rgb(48, 196, 164) 31%,
+                                                              transparent 31% 35%,
+                                                              rgb(48, 196, 164) 35% 66%,
+                                                              transparent 66% 100%
+                                                            );`
             seatFourTurn = false
             seatThreeTurn = true
             seatTwoTurn = false
@@ -860,12 +806,12 @@ function ifSeatTwoIsTrue(){
             if(bubbleChat[1].textContent === "Draw"){
               drawLastCardSeatTwo()
               seatCardsHolderHiders[1].style.backgroundImage =`linear-gradient(
-                                                            to right,
-                                                            rgb(48, 196, 164) 65px,
-                                                            transparent 65px 73px,
-                                                            rgb(48, 196, 164) 73px 138px,
-                                                            transparent 138px 146px,
-                                                            rgb(48, 196, 164) 146px 211px)`
+                                                                to right,
+                                                                rgb(48, 196, 164) 31%,
+                                                                transparent 31% 35%,
+                                                                rgb(48, 196, 164) 35% 66%,
+                                                                transparent 66% 100%
+                                                              );`
               seatFourTurn = false
               seatThreeTurn = true
               seatTwoTurn = false
@@ -949,10 +895,9 @@ function ifSeatThreeIsTrue(){
     removeAllBubbleChat()
     gameButtons.style.display = "flex";
     drawBtn.style.display = "none"
-    drawOneCardBtn.style.display = "block" 
-    checkBtn.style.display = "block"
-    foldButton.style.display = "block"
-    gameButtons.style.transform = "translateX(-65%) translateY(50%)"
+    drawOneCardBtn.style.display = "flex" 
+    checkBtn.style.display = "flex"
+    foldButton.style.display = "flex"
   
     drawOneCardBtn.addEventListener('click', (e) => {
 
@@ -1183,12 +1128,13 @@ function ifGameEndTrue(){
       }
 
       for(let seatCardsHolderHider of seatCardsHolderHiders){
-      seatCardsHolderHider.style.backgroundImage =`linear-gradient(
-                                                    to right,
-                                                    rgb(48, 196, 164) 65px,
-                                                    transparent 65px 73px,
-                                                    rgb(48, 196, 164) 73px 138px,
-                                                    transparent 138px 146px)`
+        seatCardsHolderHider.style.backgroundImage =`linear-gradient(
+                                                      to right,
+                                                      rgb(48, 196, 164) 31%,
+                                                      transparent 31% 35%,
+                                                      rgb(48, 196, 164) 35% 66%,
+                                                      transparent 66% 100%
+                                                    );`
       }                                              
     },2500)
     
@@ -1203,8 +1149,6 @@ function ifGameEndTrue(){
     seatTwoTurn = false
     seatThreeTurn = false
     seatFourTurn = false
-
-
 
     isSeatOneOutted = false
     isSeatTwoOutted = false
@@ -1281,8 +1225,6 @@ function ifGameEndTrue(){
 }
 
 function checkWinner(){
-  console.log(isSeatOneOutted,isSeatTwoOutted,isSeatThreeOutted,isSeatFourOutted)
-  console.log(seatOneResult,seatTwoResult,seatThreeResult,seatFourResult)
   if(
     seatOneResult > seatTwoResult &&
     seatOneResult > seatThreeResult &&
@@ -1290,12 +1232,7 @@ function checkWinner(){
     seatOneResult < 22 &&
     isSeatOneOutted === false
     ){
-      console.log('working one')
       seatOneWon = true
-      removeHeart()
-      console.log('seatOne won')
-
-
         if(characterId === 1){
           winnerDisplay.innerHTML = "<h3>Bob is the Winner !</h3>"
         }else if(characterId === 2){
@@ -1315,9 +1252,6 @@ function checkWinner(){
     ){
 
       seatTwoWon = true
-      console.log('working two')
-      removeHeart()
-      console.log('seatTwo won')
 
         if(characterId === 1){
           winnerDisplay.innerHTML = "<h3>Anna is the Winner !</h3>"
@@ -1337,8 +1271,6 @@ function checkWinner(){
       isSeatThreeOutted === false
     ){
       seatThreeWon = true
-      addHeartWhenWon()
-      console.log('seatThree won')
       winnerDisplay.innerHTML = "<h3>You are the Winner !</h3>"
      
     }else if(
@@ -1350,7 +1282,6 @@ function checkWinner(){
     ){
       seatFourWon = true
       console.log('working four')
-      removeHeart()
       console.log('seatFour won')
 
         if(characterId === 1){
@@ -1366,41 +1297,17 @@ function checkWinner(){
     }
 }
 
-function removeHeart(){
-  lives--
-  if(lives < 0){
-    lives = 0
-  }
-  heartContainers[lives].classList.remove('hearts')
-  heartContainers[lives].classList.add('removeHeart')
-  console.log('working')
-}
-
-function addHeartWhenWon(){
-  if(lives >= 5){
-    lives  = 4
-  }
-  heartContainers[lives].classList.remove('removeHeart')
-  heartContainers[lives].classList.add('hearts')
-  lives++
-  console.log('working')
-}
-
 function checkIfPlayerInOrOut(){
   if(seatOneResult > 21){
-    console.log('seatOneOut check Working')
     isSeatOneOutted = true
   }
   if(seatTwoResult > 21){
-    console.log('seatTwoOut check Working')
     isSeatTwoOutted = true
   }
    if(seatThreeResult > 21){
-    console.log('seatThreeOut check Working')
     isSeatThreeOutted = true
   }
   if(seatFourResult > 21){
-    console.log('seatFourOut check Working')
     isSeatFourOutted = true
   }
 }
@@ -1428,14 +1335,12 @@ function checkForTie(){
     seatOneResult === seatFourResult) &&
     (!seatOneWon && !seatTwoWon && !seatThreeWon && !seatFourWon)
   ){
-    console.log('tie seatOne')
     winnerDisplay.innerHTML = "It's a Tie"
   }else if(    
     (seatTwoResult === seatOneResult ||
      seatTwoResult === seatThreeResult ||
      seatTwoResult === seatFourResult) &&
     (!seatOneWon && !seatTwoWon && !seatThreeWon && !seatFourWon)){
-      console.log('tie seatTwo')
       winnerDisplay.innerHTML = "It's a Tie"
   }else if(
     (seatThreeResult === seatOneResult ||
@@ -1443,7 +1348,6 @@ function checkForTie(){
      seatThreeResult === seatFourResult) &&
     (!seatOneWon && !seatTwoWon && !seatThreeWon && !seatFourWon)
   ){
-    console.log('tie seatThree')
     winnerDisplay.innerHTML = "It's a Tie"
   }else if(
     (seatFourResult === seatOneResult ||
@@ -1451,7 +1355,6 @@ function checkForTie(){
      seatFourResult === seatThreeResult) &&
     (!seatOneWon && !seatTwoWon && !seatThreeWon && !seatFourWon)
   ){
-    console.log('tie seatFour')
     winnerDisplay.innerHTML = "It's a Tie"
   }
 }
@@ -1467,6 +1370,35 @@ function checkIfAllFold(){
   }
 }
 
+
+window.addEventListener('load', () => {
+  if(
+    window.innerWidth < window.innerHeight
+    ){
+      body.style.transform = 'rotate(90deg)'
+  }else if (
+    window.innerWidth > window.innerHeight
+  ){
+    body.style.transform = 'rotate(0deg)'
+  }
+})
+
+window.addEventListener('resize', () => {
+  if(
+    window.innerWidth < window.innerHeight
+  ){
+      body.style.transform = 'rotate(90deg)'
+  }else if (
+    window.innerWidth > window.innerHeight
+  ){
+    body.style.transform = 'rotate(0deg)'
+  }
+})
+
+
+settingToggle.addEventListener('click', () => {
+  optionsFirstRow.classList.toggle('options__first-row--unfold')
+})
 
 
 
