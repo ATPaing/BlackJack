@@ -10,13 +10,18 @@
 </head>
 <body>
     <section class="options">
-        <div id="choosenCharacter" class="choosenCharacter">
+      <div class="options__first-row">
+        <div id="choosenCharacter" class="choosenCharacter opt-item">
           <!-- Image will be added via js -->
         </div>
-        <div id="helpBtn"><i class="fas fa-question"></i></div>
-        <div id="musicBtn" class="eventCancel"><i class="fas fa-music"></i></div>
-        <div id="soundBtn" class="eventCancel"><i id="soundIcon" class="fas fa-volume-off"></i></div>
-    </section>
+        <div id="musicBtn" class="eventCancel opt-item"><i class="fas fa-music"></i></div>
+        <div id="soundBtn" class="eventCancel opt-item"><i id="soundIcon" class="fas fa-volume-off"></i></div>
+      </div>  
+        <div class="setting-toggle opt-item">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+      </section>
+
     <section id="playCharacterSection" class="buttons">
       <div id="playButon" class="play-button eventCancel pointerEventCancel">Play</div>
       <div id="characterChooseButton" class="character-choose">Choose Character</div>
@@ -70,6 +75,62 @@
             <div class="table">
                 <div class="table-image-holder">
                  <img src="images/pokerTable.png" alt="poker table">
+                 <div class="seat-one-holder seat-holders">
+                  <div class="seatOneFirstRow">
+                   <p id="seatOneName">
+                     
+                   </p>
+                   <div id="seatOne" class="seat-one seats">
+                     
+                   </div>
+                   <div class="seatOneBubbleChat bubbleChat">
+                   
+                   </div>
+                 </div>  
+                  <div id="seatOneShowTotalMark" class="seatOneShowTotalMark">
+  
+                 </div>
+  
+                </div>  
+  
+                <div class="seat-two-holder seat-holders"> 
+                  <div id="seatTwoShowTotalMark" class="seatTwoShowTotalMark">
+  
+                  </div>
+                  <div id="seatTwo" class="seat-two seats">
+                      
+                  </div>
+                  <p id="seatTwoName">
+                     
+                  </p>
+                  <div class="seatTwoBubbleChat bubbleChat ">
+                    
+                  </div>
+                </div> 
+                
+                <div class="seat-three-holder seat-holders">
+                  <div  class="seat-three seats">
+                     
+                  </div>
+                  <div id="seatThreeShowTotalMark" class="seatThreeShowTotalMark">
+             
+                  </div>
+                </div>
+  
+                <div class="seat-four-holder seat-holders">
+                  <div id="seatFourShowTotalMark" class="seatFourShowTotalMark">
+  
+                  </div>
+                  <div id="seatFour" class="seat-four seats">
+                      
+                  </div>
+                  <p id="seatFourName">
+                     
+                  </p>
+                  <div class="seatFourBubbleChat bubbleChat">
+                   
+                  </div>
+               </div>  
                 </div> 
                 <div id="seatOneCardHolder" class="seat-one-card-holder seat-cards-holder">
                     <div class="seat-one-card-one seat-cards"></div>
@@ -102,92 +163,7 @@
                 </div>
                 <div id="winnerDisplay" class="winnerDisplay"></div>
 
-              <div class="seat-one-holder seat-holders">
-                <div class="seatOneFirstRow">
-                 <p id="seatOneName">
-                   
-                 </p>
-                 <div id="seatOne" class="seat-one seats">
-                   
-                 </div>
-                 <div class="seatOneBubbleChat bubbleChat">
-                 
-                 </div>
-               </div>  
-                <div id="seatOneShowTotalMark" class="seatOneShowTotalMark">
 
-               </div>
-
-              </div>  
-
-              <div class="seat-two-holder seat-holders"> 
-                <div id="seatTwoShowTotalMark" class="seatTwoShowTotalMark">
-
-                </div>
-                <div id="seatTwo" class="seat-two seats">
-                    
-                </div>
-                <p id="seatTwoName">
-                   
-                </p>
-                <div class="seatTwoBubbleChat bubbleChat ">
-                  
-                </div>
-              </div> 
-              
-              <div class="seat-three-holder seat-holders">
-                <div  class="seat-three seats">
-                   
-                </div>
-                <div id="seatThreeShowTotalMark" class="seatThreeShowTotalMark">
-           
-                </div>
-              </div>
-
-              <div class="seat-four-holder seat-holders">
-                <div id="seatFourShowTotalMark" class="seatFourShowTotalMark">
-
-                </div>
-                <div id="seatFour" class="seat-four seats">
-                    
-                </div>
-                <p id="seatFourName">
-                   
-                </p>
-                <div class="seatFourBubbleChat bubbleChat">
-                 
-                </div>
-             </div>  
-            </div>
-        </div>
-        <div class="profile-holder">
-            <p id="bankTitle" class="bank-title">Bank</p>
-            <div id="profileInfos" class="profile-infos">
-             <div class="profile-card"> 
-                <div id="profileImageHolder" class="profileImageHolder">
-               
-                </div>
-                <p id="profileName">
-               
-                </p>
-             </div>  
-                <div  class="hearts-holder">
-                   <div id="heartOne" class="heart1 hearts heartContainer">
-
-                   </div>
-                   <div id="heartTwo" class="heart2 hearts heartContainer">
-
-                   </div>
-                   <div id="heartThree" class="heart3 hearts heartContainer">
-
-                   </div>
-                   <div id="heartFour" class="heart4 hearts heartContainer">
-
-                   </div>
-                   <div id="heartFive" class="heart5 hearts heartContainer">
-
-                   </div>
-                </div>
             </div>
         </div>
     </section>
