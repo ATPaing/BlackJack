@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 :root{
     --primary-clr : 61 66% 48%;
     --secondary-clr: 0 80% 25%;
@@ -13,23 +14,40 @@
     --anna-clr: 11 72% 85%; 
 }
 body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     background-image: url(images/table.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
     font-family: 'Domine', serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     user-select: none;
     font-size: 16px;
+    overflow: hidden;
 }
 img{
     display: block;
     max-width: 100%;
 }
-
+.alert{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(75, 74, 74);
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.alert p{
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px black;
+    letter-spacing: 3px;
+    font-weight: bolder;
+}
 .options{
     position: absolute;
     z-index: 1;
@@ -39,27 +57,65 @@ img{
     justify-content: flex-end;
     align-items: center;
     gap: 1em;
-    padding: 1em;
+    top: 0;
+    right: 15px;
+    margin-top: 1.5em;
     font-size: 1.8rem;
     color: hsl(var(--secondary-clr));
 }
+.options__first-row{
+    display: flex;
+    gap: 1em;
+    transform-origin: right;
+    transition: all 360ms linear;
+}
+
+@media (max-width: 750px) {
+    .options__first-row{
+        transform: scale(0) translateX(100%);
+    }
+}
+.options__first-row--unfold{
+    transform: scale(1) translateX(0);
+}
 .choosenCharacter{
     display: none;
-    width: 60px;
-    height: 60px;
-    padding: 1em 1em 0 1em;
-    border-radius: 5px;
+    width: max-content;
+    border-radius: 15px; 
+    padding:0.8em;
+    font-size: 1rem;
+}
+.choosenCharacter img{
+    width: clamp(25px,3vw,60px);
+    height: auto;
 }
 .choosenCharacter:hover{
     pointer-events: none;
 }
-.options > * {
+.options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.opt-item:not(:first-child){
     background:hsl(var(--primary-clr));
-    padding: .5em;
+    padding: .8em;
     border-radius: 15px;
     cursor: pointer;
+    width: clamp(25px,5vw,60px);
+    height: clamp(25px,5vw,60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.setting-toggle.setting-toggle.setting-toggle{
+    display: none;
+}
+@media (max-width: 750px) {
+    .setting-toggle.setting-toggle.setting-toggle{
+        display: flex;
+    }
+}
 /* Play and char btn */
 .buttons{
     display: flex;
@@ -81,14 +137,14 @@ img{
     width: 60%;
     margin: 0 auto;
 }
-:where(.buttons > *, .options > *):hover{
+:is(.buttons > *, .opt-item):hover{
     background: hsl(var(--secondary-clr));
     color: hsl(var(--primary-clr));
 }
 
 /* character choosing section */
 .character-section{
-    width: 570px;
+    width: 85%;
     background-color: #438998;
     position: absolute;
     top: 50%;
@@ -97,7 +153,6 @@ img{
     border-radius: 10px;
     padding: 1.8em;
     transform: translateY(-50%);
-
 }
 .avatar-section{
     display: flex;
@@ -105,7 +160,7 @@ img{
 }
 /* styling avatar imag holder */
 .avatar-img-holder{
-    width: 100px;
+    width: clamp(50px,5vw,100px);
     border-radius: 15px;
     padding: .5em .5em 0 .5em;
     cursor: pointer;
@@ -125,6 +180,7 @@ img{
 .anna-image-holder{
     background-color: hsl(var(--anna-clr))
 }
+
 /* styling avatar name */
 .avatar-name{
     text-align: center;
@@ -144,21 +200,25 @@ img{
 .anna-name{
     color: hsl(var(--anna-clr));
 }
+
 /*avatar profile */
 .avatar-profile{
     position: relative;
-    width: 520px;
-    height: 100px;
+    width: 100%;
+    height: auto;
     background-color: hsl(var(--cesar-clr));
     border-radius: 3px;
     margin-block: 1.5em;
     padding: 1em;
 }
+.avatar-profile p{
+    line-height: 2;
+}
 .avatar-profile-before{
     position: absolute;
-    top: -50%;
-    left: 5%;
-    transform: translateY(70%);
+    top: -25%;
+    left: 3%;
+
     border: 16px solid transparent;
     border-bottom-color: hsl(var(--cesar-clr));
 }
@@ -166,7 +226,7 @@ img{
 .confirm-btn{
     text-align: center;
     background-color: hsl(var(--cesar-clr));
-    width: 30%;
+    width: max-content;
     padding: 0.5em 1em;
     margin: 0 auto;
     border-radius: 5px;
@@ -187,9 +247,9 @@ img{
     height: 100vh;
 }
 .credits-btn{
-    margin-inline-start: 5em;
-    margin-block-start: 1em;
-    width: 250px;
+    margin-inline-start: clamp(2em,2vw,5em);
+    margin-block-start: 2em;
+    width: clamp(50px,20vw,250px);
     background-color: hsl(var(--primary-clr)); 
     color: hsl(var(--secondary-clr));
     font-size: 1.3rem;
@@ -201,29 +261,35 @@ img{
     cursor: pointer;
     z-index: 3;
 }
+
 /* gametable and seating */
 .game-table{
     position: relative;
-    transform: translateY(-7%)
+    top: 50%;
+    transform: translateY(-100%);
 }
 .table{
     display:flex;
     justify-content: center;
     align-items: center ;
     position: relative;
-    transform: translateY(30%);
+    top: 50%;
 }
 .table-image-holder{
-  width: 730px;
+    position: relative;
+    width: clamp(250px,55vw,730px);
 }
 .table-image-holder img{
     width: 100%;
 }
 .seats{
-    width: 100px;
-    height: 100px;
+    width: clamp(75px,3vw,100px);
+    height: clamp(75px,3vw,100px);
     border-radius: 50%;
-    padding: 1em 1em 0 1em;
+    padding: clamp(0.15em,1vw,1em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .seat-one-holder{
     display: flex;
@@ -252,25 +318,19 @@ img{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    top: -33%;
     left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    transform: translateX(-50%) translateY(-100%);
 }
 .seat-two-holder{
-    right: 16%;
+    right: 0;
     top: 50%;
-    transform: translateY(-50%);
-}
-.seat-three-holder{
-    position: absolute;
-    left: 50%;
-    bottom: -15%;
-    transform: translateX(-50%);
+    transform: translateX(100%) translateY(-50%);
 }
 .seat-four-holder{
+    left: 0;
     top: 50%;
-    left: 16%;
-    transform: translateY(-50%);
+    transform: translateX(-100%) translateY(-50%);
 }
 .seatFourShowTotalMark,.seatTwoShowTotalMark,.seatOneShowTotalMark,.seatThreeShowTotalMark{
     width: max-content;
@@ -296,7 +356,6 @@ img{
     justify-content: center;
     align-items: center;
 }
-
 .active-seat{
     outline: 5px solid  hsl(84, 100%, 59%);
 }
@@ -306,7 +365,7 @@ img{
 .seatOneBubbleChat{
     width: 100px;
     height: 50px;
-    right: -80%;
+    right: -120%;
     top: 0;
     font-size:1.2rem ;
     font-weight: bolder;
@@ -319,7 +378,7 @@ img{
 .seatOneBubbleChat::before{
     content: '';
     position: absolute;
-    bottom: -30%;
+    bottom: -20%;
     left: 0;
     width: 15px;
     height: 15px;
@@ -330,7 +389,7 @@ img{
 .seatTwoBubbleChat{
     width: 100px;
     height: 50px;
-    right: -80%;
+    right: -120%;
     top: -20%;
     font-size:1.2rem ;
     font-weight: bolder;
@@ -343,7 +402,7 @@ img{
 .seatTwoBubbleChat::before{
     content: '';
     position: absolute;
-    bottom: -30%;
+    bottom: -20%;
     left: 0;
     width: 15px;
     height: 15px;
@@ -353,7 +412,7 @@ img{
 .seatFourBubbleChat{
     width: 100px;
     height: 50px;
-    left: -80%;
+    left: -120%;
     top: -20%;
     font-size:1.2rem ;
     font-weight: bolder;
@@ -366,13 +425,15 @@ img{
 .seatFourBubbleChat::before{
     content: '';
     position: absolute;
-    bottom: -30%;
+    /* bottom: -120%; */
+    bottom: -20%;
     right: 0;
     width: 15px;
     height: 15px;
     background-color: hsl(var(--primary-clr));
     border-radius: 0 0 10% 100% ;
 }
+
 /*  cards seat placing */
 .seat-cards-holder{
     position: absolute;
@@ -387,10 +448,10 @@ img{
     height: 100%;
     background-image: linear-gradient(
         to right,
-        rgb(48, 196, 164) 65px,
-        transparent 65px 73px,
-        rgb(48, 196, 164) 73px 138px,
-        transparent 138px 146px
+        rgb(48, 196, 164) 31%,
+        transparent 31% 35%,
+        rgb(48, 196, 164) 35% 66%,
+        transparent 66% 100%
     );
 }
 .seat-one-card-holder{
@@ -414,7 +475,7 @@ img{
     transform: rotate(90deg) translateX(-50%);
 }
 .seat-cards{
-    width: 65px;
+    width: clamp(20px,5vw,65px);
     aspect-ratio: 5/7;
     border: 1px solid black;
     position: relative;
@@ -424,7 +485,7 @@ img{
     height: 100%;
 }
 .lastcard{
-    width: 65px;
+    width: clamp(20px,5vw,65px);
     aspect-ratio: 5/7;
     border: 1px dotted black;
 }
@@ -436,11 +497,10 @@ img{
 .gameButtons,.winnerDisplay{
     margin: 0 auto;
     position: absolute;
-    width: 250px;
+    width: max-content;
     height: 50px;
     bottom: 50%;
-    left: 50%;
-    transform: translateX(-30%) translateY(50%);
+    transform: translateY(50%);
     padding: 1em;
     display:flex;
     gap: .5em;
@@ -457,18 +517,18 @@ img{
 }
 .drawAndStopBtn,.checkButton,.foldButton,.drawOneCardBtn{
     font-weight: bolder;
-    font-size: 1.2rem;
-    width: 100px;
+    font-size: clamp(0.8rem,2vw,1.2rem);
+    width: clamp(50px,3vw,100px);
     height: 45px;
     border-radius: 5px;
-    transform: translateY(-50%);
+    transform: translateY(-30%);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     background-color: hsl(var(--primary-clr));
     color: hsl(var(--secondary-clr));
-    padding: .5em 1em;
+    padding:  1.2em 1.8em;
 }
 :where(.drawAndStopBtn,.checkButton,.foldButton,.drawOneCardBtn):hover{
     background-color: hsl(var(--secondary-clr));
@@ -531,28 +591,6 @@ img{
     align-items: center;
     font-size: 2rem;
     color: hsl(var(--anna-clr))
-}
-
-.hearts-holder{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-bottom: 2em;
-}
-
-.hearts{
-    width: 40px;
-    height: 40px;
-    background-image: url(images/heart.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-.removeHeart{
-    width: 40px;
-    height: 40px;
-    background-image:url(imaegs/emptyHeart.png);
-    background-size: contain;
-    background-repeat: no-repeat;
 }
 
 .credits{
@@ -631,11 +669,11 @@ img{
     box-shadow:
      3px 3px 5px rgba(0, 0, 0, 0.308),
     -3px -3px 5px rgba(255, 255, 255, 0.493);
-   }
+}
    
 .credits-close-btn:hover{
-transform: rotateZ(360deg);
-transition: transform 360ms ease-in-out;
+    transform: rotateZ(360deg);
+    transition: transform 360ms ease-in-out;
 }
 /* Utility Classes */
 .pointerEventCancel{
