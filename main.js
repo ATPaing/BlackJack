@@ -1370,30 +1370,13 @@ function checkIfAllFold(){
   }
 }
 
-
 window.addEventListener('load', () => {
-  if(
-    window.innerWidth < window.innerHeight
-    ){
-      body.style.transform = 'rotate(90deg)'
-  }else if (
-    window.innerWidth > window.innerHeight
-  ){
-    body.style.transform = 'rotate(0deg)'
+  if(window.innerWidth < window.innerHeight){
+    window.alert('Please rotate ur phone ')
   }
 })
 
-window.addEventListener('resize', () => {
-  if(
-    window.innerWidth < window.innerHeight
-  ){
-      body.style.transform = 'rotate(90deg)'
-  }else if (
-    window.innerWidth > window.innerHeight
-  ){
-    body.style.transform = 'rotate(0deg)'
-  }
-})
+
 
 
 settingToggle.addEventListener('click', () => {
