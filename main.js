@@ -1372,7 +1372,7 @@ function checkIfAllFold(){
 
 window.addEventListener('load', () => {
   if(window.innerWidth < window.innerHeight){
-    const req = window.confirm('Please rotate ur phone to proceed')
+    const req = window.confirm('Please rotate ur phone and tap full screen btn')
     if(req){
       characterChooseButton.addEventListener('click',() => {
         const screenMode = document.fullscreenElement === null ? 'requestFullscreen' : 'exitFullscreen'
