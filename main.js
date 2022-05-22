@@ -1372,7 +1372,19 @@ function checkIfAllFold(){
 
 window.addEventListener('load', () => {
   if(window.innerWidth < window.innerHeight){
-    window.alert('Please rotate ur phone ')
+    const req = window.confirm('Please rotate ur phone to proceed')
+    if(req){
+      characterChooseButton.addEventListener('click',() => {
+        const screenMode = document.fullscreenElement === null ? 'requestFullscreen' : 'exitFullscreen'
+      
+        if(screenMode === 'requestFullscreen'){
+          document.documentElement[screenMode]()
+       }
+      })
+
+    }else {
+      window.alert('please rotate ur phone')
+    }
   }
 })
 
