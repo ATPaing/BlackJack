@@ -12,6 +12,8 @@
     --bett-clr: 54 87% 64%;
     --bob-clr: 234 84% 83%;
     --anna-clr: 11 72% 85%; 
+
+    --gradient : 
 }
 body{
     display: flex;
@@ -327,6 +329,10 @@ img{
     top: 50%;
     transform: translateX(100%) translateY(-50%);
 }
+.seat-three-holder{
+  left: 50%;   
+  transform: translateX(-50%);
+}
 .seat-four-holder{
     left: 0;
     top: 50%;
@@ -349,6 +355,9 @@ img{
 }
 .seat-one{
     position: relative;
+}
+.seat-three{
+    display: none;
 }
 .seatOneFirstRow{
     display:flex;
@@ -454,6 +463,14 @@ img{
         transparent 66% 100%
     );
 }
+.seat-cards-holder-hider-check{
+    background-image: linear-gradient(
+        to right,
+        rgb(48, 196, 164) 50%,
+        transparent 50% 55%,
+        rgb(48, 196, 164) 55% 100%
+    );
+}
 .seat-one-card-holder{
     bottom: 65%;
     left: 50%;
@@ -508,12 +525,12 @@ img{
 .winnerDisplay{
     display: none;
     width:max-content;
-    transform: translateX(-50%) translateY(50%);
     justify-content: center;
     align-items: center;
     color: hsl(var(--secondary-clr));
     font-size: 1.3rem;
     font-weight: bolder;
+    padding: 0;
 }
 .drawAndStopBtn,.checkButton,.foldButton,.drawOneCardBtn{
     font-weight: bolder;
