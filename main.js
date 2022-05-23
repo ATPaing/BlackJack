@@ -508,13 +508,7 @@ function ifSeatFourIsTrue(){
         // the avatar will say draw
         bubbleChat[2].textContent = avatarDialogue[0]
         drawLastCardSeatFour()
-        seatCardsHolderHiders[2].style.backgroundImage =`linear-gradient(
-                                                          to right,
-                                                          rgb(48, 196, 164) 31%,
-                                                          transparent 31% 35%,
-                                                          rgb(48, 196, 164) 35% 66%,
-                                                          transparent 66% 100%
-                                                        );`
+        seatCardsHolderHiders[2].classList.remove('seat-cards-holder-hider-check')
         seatFourTurn = false
         seatThreeTurn = false
         seatTwoTurn = false
@@ -527,7 +521,7 @@ function ifSeatFourIsTrue(){
         lastCard[3].style.display = "none"
         seatFourCardHolder.style.top = "55%"
         seatFourCardHolder.style.left = "25%"
-
+        seatCardsHolderHiders[2].classList.add('seat-cards-holder-hider-check')
         bubbleChat[2].textContent = avatarDialogue[2]
         seatFourTurn = false
         seatThreeTurn = false
@@ -541,13 +535,7 @@ function ifSeatFourIsTrue(){
         bubbleChat[2].textContent = avatarDialogue[dialogueRandom()]
         if(bubbleChat[2].textContent === "Draw"){
           drawLastCardSeatFour()
-          seatCardsHolderHiders[2].style.backgroundImage =`linear-gradient(
-                                                            to right,
-                                                            rgb(48, 196, 164) 31%,
-                                                            transparent 31% 35%,
-                                                            rgb(48, 196, 164) 35% 66%,
-                                                            transparent 66% 100%
-                                                          );`
+          seatCardsHolderHiders[2].classList.remove('seat-cards-holder-hider-check')
           seatFourTurn = false
           seatThreeTurn = false
           seatTwoTurn = false
@@ -570,7 +558,7 @@ function ifSeatFourIsTrue(){
           lastCard[3].style.display = "none"
           seatFourCardHolder.style.top = "55%"
           seatFourCardHolder.style.left = "25%"
-
+          seatCardsHolderHiders[2].classList.add('.seat-cards-holder-hider-check')
           seatFourTurn = false
           seatThreeTurn = false
           seatTwoTurn = false
@@ -646,13 +634,7 @@ function ifSeatOneIsTrue(){
           // the avatar will say draw
           bubbleChat[0].textContent = avatarDialogue[0]
           drawLastCardSeatOne()
-          seatCardsHolderHiders[0].style.backgroundImage =`linear-gradient(
-                                                            to right,
-                                                            rgb(48, 196, 164) 31%,
-                                                            transparent 31% 35%,
-                                                            rgb(48, 196, 164) 35% 66%,
-                                                            transparent 66% 100%
-                                                          );`
+          seatCardsHolderHiders[0].classList.remove('seat-cards-holder-hider-check')
           seatFourTurn = false
           seatThreeTurn = false
           seatTwoTurn = true
@@ -664,6 +646,7 @@ function ifSeatOneIsTrue(){
           // the avatar will say check
           lastCard[0].style.display = "none"
           bubbleChat[0].textContent = avatarDialogue[2]
+          seatCardsHolderHiders[0].classList.add('seat-cards-holder-hider-check')
           seatFourTurn = false
           seatThreeTurn = false
           seatTwoTurn = true
@@ -675,13 +658,7 @@ function ifSeatOneIsTrue(){
           bubbleChat[0].textContent = avatarDialogue[dialogueRandom()]
           drawLastCardSeatOne()
           if(bubbleChat[0].textContent === "Draw"){
-            seatCardsHolderHiders[0].style.backgroundImage =`linear-gradient(
-                                                              to right,
-                                                              rgb(48, 196, 164) 31%,
-                                                              transparent 31% 35%,
-                                                              rgb(48, 196, 164) 35% 66%,
-                                                              transparent 66% 100%
-                                                            );`
+            seatCardsHolderHiders[0].classList.remove('seat-cards-holder-hider-check')
             seatFourTurn = false
             seatThreeTurn = false
             seatTwoTurn = true
@@ -701,6 +678,7 @@ function ifSeatOneIsTrue(){
             setTimeout(ifSeatTwoIsTrue,1500)
           }else if(bubbleChat[0].textContent === "Check") {
             lastCard[0].style.display = "none"
+            seatCardsHolderHiders[0].classList.add('seat-cards-holder-hider-check')
             seatFourTurn = false
             seatThreeTurn = false
             seatTwoTurn = true
@@ -774,13 +752,7 @@ function ifSeatTwoIsTrue(){
             // the avatar will say draw           
             bubbleChat[1].textContent = avatarDialogue[0]
             drawLastCardSeatTwo()
-            seatCardsHolderHiders[1].style.backgroundImage =`linear-gradient(
-                                                              to right,
-                                                              rgb(48, 196, 164) 31%,
-                                                              transparent 31% 35%,
-                                                              rgb(48, 196, 164) 35% 66%,
-                                                              transparent 66% 100%
-                                                            );`
+            seatCardsHolderHiders[1].classList.remove('seat-cards-holder-hider-check')
             seatFourTurn = false
             seatThreeTurn = true
             seatTwoTurn = false
@@ -793,6 +765,7 @@ function ifSeatTwoIsTrue(){
             lastCard[1].style.display = "none"
             seatTwoCardHolder.style.right = "25%"   
             seatTwoCardHolder.style.top = "55%"   
+            seatCardsHolderHiders[1].classList.add('seat-cards-holder-hider-check')
             bubbleChat[1].textContent = avatarDialogue[2]
             seatFourTurn = false
             seatThreeTurn = true
@@ -805,13 +778,7 @@ function ifSeatTwoIsTrue(){
             bubbleChat[1].textContent = avatarDialogue[dialogueRandom()]
             if(bubbleChat[1].textContent === "Draw"){
               drawLastCardSeatTwo()
-              seatCardsHolderHiders[1].style.backgroundImage =`linear-gradient(
-                                                                to right,
-                                                                rgb(48, 196, 164) 31%,
-                                                                transparent 31% 35%,
-                                                                rgb(48, 196, 164) 35% 66%,
-                                                                transparent 66% 100%
-                                                              );`
+              seatCardsHolderHiders[1].classList.remove('seat-cards-holder-hider-check')
               seatFourTurn = false
               seatThreeTurn = true
               seatTwoTurn = false
@@ -831,6 +798,7 @@ function ifSeatTwoIsTrue(){
               setTimeout(ifSeatThreeIsTrue,1500)
             }else if(bubbleChat[1].textContent === "Check"){          
               lastCard[1].style.display = "none"
+              seatCardsHolderHiders[1].classList.add('seat-cards-holder-hider-check')
               seatTwoCardHolder.style.right = "25%"   
               seatTwoCardHolder.style.top = "55%"             
               seatFourTurn = false
@@ -1049,7 +1017,9 @@ function ifGameEndTrue(){
     for(let seatCardsHolderHider of seatCardsHolderHiders){
       seatCardsHolderHider.style.display = "none"
     }
-
+    seatCardsHolderHiders.forEach(SCHH => {
+      SCHH.classList.remove('seat-cards-holder-hider-check')
+    })
 
     seatOneShowTotalMark.style.display = "flex"
     seatTwoShowTotalMark.style.display = "flex"
@@ -1084,7 +1054,6 @@ function ifGameEndTrue(){
 
     gameButtons.style.display = "none"
     winnerDisplay.style.display = "block"
-    winnerDisplay.style.transform = "translateX(-50%) translateY(50%)"
 
     checkIfPlayerInOrOut()
     ruleOutTheResultIfPlayerIsOutted()
@@ -1372,7 +1341,7 @@ function checkIfAllFold(){
 
 window.addEventListener('load', () => {
   if(window.innerWidth < window.innerHeight){
-    const req = window.confirm('Please rotate ur phone and tap full screen btn')
+    const req = window.confirm('Please rotate ur phone and tap full screen')
     if(req){
       characterChooseButton.addEventListener('click',() => {
         const screenMode = document.fullscreenElement === null ? 'requestFullscreen' : 'exitFullscreen'
